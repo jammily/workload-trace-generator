@@ -1,0 +1,416 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <center><h3> Benchmark de Escenarios Pre-generados</h3></center>
+  <div class="container">
+    <div class="col-md-6">
+    <ul class="nav nav-bars">
+      <li><a data-toggle="modal" data-target="#esc0" href="#esc0"><b>(0,0)</b> Sin Elasticidad - Sin Overbooking</a></li>
+      <li><a data-toggle="modal" data-target="#esc1" href="#esc1"><b>(0,1)</b> Sin Elasticidad - Overbooking Recursos de Servidor</a></li>
+      <li><a data-toggle="modal" data-target="#esc2" href="#esc2"><b>(0,2)</b> Sin Elasticidad - Overbooking de Recursos de Red</a></li>
+      <li><a data-toggle="modal" data-target="#esc3" href="#esc3"><b>(0,3)</b> Sin Elasticidad - Overbooking de Recursos de Servidor y Red</a></li>
+      <li><a data-toggle="modal" data-target="#esc4" href="#esc4"><b>(1,0)</b> Elasticidad Horizontal - Sin Overbooking</a></li>
+      <li><a data-toggle="modal" data-target="#esc5" href="#esc5"><b>(1,1)</b> Elasticidad Horizontal - Overbooking de Recursos de Servidor</a></li>
+      <li><a data-toggle="modal" data-target="#esc6" href="#esc6"><b>(1,2)</b> Elasticidad Horizontal - Overbooking de Recursos de Red</a></li>
+      <li><a data-toggle="modal" data-target="#esc7" href="#esc7"><b>(1,3)</b> Elasticidad Horizontal - Overbooking de Recursos de Servidor y Red</a></li>
+</ul> </div>    
+ <div class="col-md-6">
+    <ul class="nav nav-bars">
+      <li><a data-toggle="modal" data-target="#esc8" href="#esc8"><b>(2,0)</b> Elasticidad Vertical - Sin Overbooking</a></li>
+      <li><a data-toggle="modal" data-target="#esc9" href="#esc9"><b>(2,1)</b> Elasticidad Vertical - Overbooking de Recursos de Servidor</a></li>
+      <li><a data-toggle="modal" data-target="#esc10" href="#esc10"><b>(2,2)</b> Elasticidad Vertical - Overbooking de Recursos de Red</a></li>
+      <li><a data-toggle="modal" data-target="#esc11" href="#esc11"><b>(2,3)</b> Elasticidad Vertical - Overbooking de Recursos de Servidor y Red</a></li>
+      <li><a data-toggle="modal" data-target="#esc12" href="#esc12"><b>(3,0)</b> Elasticidad Horizontal y Vertical - Sin Overbooking</a></li>
+      <li><a data-toggle="modal" data-target="#esc13" href="#esc13"><b>(3,1)</b> Elasticidad Horizontal y Vertical - Overbooking de Recursos de Servidor</a></li>
+      <li><a data-toggle="modal" data-target="#esc14" href="#esc14"><b>(3,2)</b> Elasticidad Horizontal y Vertical - Overbooking de Recursos de Red</a></li>
+      <li><a data-toggle="modal" data-target="#esc15" href="#esc15"><b>(3,3)</b> Elasticidad Horizontal y Vertical - Overbooking de Recursos de Servidor y Red</a></li>
+    </ul>
+</div>
+
+    <div class="tab-content">
+      <div class="container">
+        <div class="modal fade" id="esc0" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escenario (0,0)</h4>
+              </div>
+              <div class="modal-body">
+                {% for i in range(scenario_files_number[0]) %}
+                   {% set file =  scenario_files[0][i] %}
+                   <p><a href='static/benchmark/scenario0/{{ file }}' download>{{file}}</a></p>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <div class="tab-content">
+      <div class="container">
+        <div class="modal fade" id="esc1" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escenario (0,1)</h4>
+              </div>
+              <div class="modal-body">
+                {% for i in range(scenario_files_number[1]) %}
+                   {% set file =  scenario_files[1][i] %}
+                   <p><a href='static/benchmark/scenario1/{{ file }}' download>{{file}}</a></p>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <div class="tab-content">
+      <div class="container">
+        <div class="modal fade" id="esc2" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escenario (0,2)</h4>
+              </div>
+              <div class="modal-body">
+                {% for i in range(scenario_files_number[2]) %}
+                   {% set file =  scenario_files[2][i] %}
+                   <p><a href='static/benchmark/scenario2/{{ file }}' download>{{file}}</a></p>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <div class="tab-content">
+      <div class="container">
+        <div class="modal fade" id="esc3" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escenario (0,3)</h4>
+              </div>
+              <div class="modal-body">
+                {% for i in range(scenario_files_number[3]) %}
+                   {% set file =  scenario_files[3][i] %}
+                   <p><a href='static/benchmark/scenario3/{{ file }}' download>{{file}}</a></p>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+     <div class="tab-content">
+      <div class="container">
+        <div class="modal fade" id="esc4" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escenario (1,0)</h4>
+              </div>
+              <div class="modal-body">
+                {% for i in range(scenario_files_number[4]) %}
+                   {% set file =  scenario_files[4][i] %}
+                   <p><a href='static/benchmark/scenario4/{{ file }}' download>{{file}}</a></p>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content">
+      <div class="container">
+        <div class="modal fade" id="esc5" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escenario (1,1)</h4>
+              </div>
+              <div class="modal-body">
+                {% for i in range(scenario_files_number[5]) %}
+                   {% set file =  scenario_files[5][i] %}
+                   <p><a href='static/benchmark/scenario5/{{ file }}' download>{{file}}</a></p>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="tab-content">
+      <div class="container">
+        <div class="modal fade" id="esc6" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escenario (1,2)</h4>
+              </div>
+              <div class="modal-body">
+                {% for i in range(scenario_files_number[6]) %}
+                   {% set file =  scenario_files[6][i] %}
+                   <p><a href='static/benchmark/scenario6/{{ file }}' download>{{file}}</a></p>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <div class="tab-content">
+      <div class="container">
+        <div class="modal fade" id="esc7" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escenario (1,3)</h4>
+              </div>
+              <div class="modal-body">
+                {% for i in range(scenario_files_number[7]) %}
+                   {% set file =  scenario_files[7][i] %}
+                   <p><a href='static/benchmark/scenario7/{{ file }}' download>{{file}}</a></p>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <div class="tab-content">
+      <div class="container">
+        <div class="modal fade" id="esc8" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escenario (2,0)</h4>
+              </div>
+              <div class="modal-body">
+                {% for i in range(scenario_files_number[8]) %}
+                   {% set file =  scenario_files[8][i] %}
+                   <p><a href='static/benchmark/scenario8/{{ file }}' download>{{file}}</a></p>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="tab-content">
+      <div class="container">
+        <div class="modal fade" id="esc9" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escenario (2,1)</h4>
+              </div>
+              <div class="modal-body">
+                {% for i in range(scenario_files_number[9]) %}
+                   {% set file =  scenario_files[9][i] %}
+                   <p><a href='static/benchmark/scenario9/{{ file }}' download>{{file}}</a></p>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content">
+      <div class="container">
+        <div class="modal fade" id="esc10" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escenario (2,2)</h4>
+              </div>
+              <div class="modal-body">
+                {% for i in range(scenario_files_number[10]) %}
+                   {% set file =  scenario_files[10][i] %}
+                   <p><a href='static/benchmark/scenario10/{{ file }}' download>{{file}}</a></p>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content">
+      <div class="container">
+        <div class="modal fade" id="esc11" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escenario (2,3)</h4>
+              </div>
+              <div class="modal-body">
+                {% for i in range(scenario_files_number[11]) %}
+                   {% set file =  scenario_files[11][i] %}
+                   <p><a href='static/benchmark/scenario11/{{ file }}' download>{{file}}</a></p>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="tab-content">
+      <div class="container">
+        <div class="modal fade" id="esc12" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escenario (3,0)</h4>
+              </div>
+              <div class="modal-body">
+                {% for i in range(scenario_files_number[12]) %}
+                   {% set file =  scenario_files[12][i] %}
+                   <p><a href='static/benchmark/scenario12/{{ file }}' download>{{file}}</a></p>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content">
+      <div class="container">
+        <div class="modal fade" id="esc13" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escenario (3,1)</h4>
+              </div>
+              <div class="modal-body">
+                {% for i in range(scenario_files_number[13]) %}
+                   {% set file =  scenario_files[13][i] %}
+                   <p><a href='static/benchmark/scenario13/{{ file }}' download>{{file}}</a></p>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content">
+      <div class="container">
+        <div class="modal fade" id="esc14" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escenario (3,2)</h4>
+              </div>
+              <div class="modal-body">
+                {% for i in range(scenario_files_number[14]) %}
+                   {% set file =  scenario_files[14][i] %}
+                   <p><a href='static/benchmark/scenario14/{{ file }}' download>{{file}}</a></p>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content">
+      <div class="container">
+        <div class="modal fade" id="esc15" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escenario (3,3)</h4>
+              </div>
+              <div class="modal-body">
+                {% for i in range(scenario_files_number[15]) %}
+                   {% set file =  scenario_files[15][i] %}
+                   <p><a href='static/benchmark/scenario15/{{ file }}' download>{{file}}</a></p>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--  <div id="esc0" class="tab-pane fade">
+        <br>
+        {#% for i in range(scenario_files_number[0]) %#}
+         <p> <a {#{ i+ 1}#}. href='/home/jammy/simulator2/simulator/{#{ scenario[0][i]}#}' download>{#{i+1}#}. out</a></p>
+        {#% endfor %#}
+      </div>
+ 
+      <div id="esc1" class="tab-pane fade">
+        <br>
+        <h2>Escenario 1: </h2> <h3>Sin Elasticidad - Sin Overbooking de Recursos de Servidor</h3>
+        <p>Ejemplos pre-generados para el Escenario (0, 1):</p>
+        {#% for i in range(scenario_files_number[1]) %#}
+         <p> <a {#{ i+ 1}#}. href='/home/jammy/simulator2/simulator/{#{ scenario[1][i]}#}' download>{#{i+1}#}. out</a></p>
+        {#% endfor %#}
+      </div> -->
+
+ 
+    </div>
+  </div>
+{% endblock %}

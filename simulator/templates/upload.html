@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form action="{{ url_for('uploadFile') }}" method="post" enctype="multipart/form-data">
+
+  <div class="form-group">	
+    <label <h4><p>File input</p></label>      
+      <input type="file" name="file">
+      <p class="help-block">Input a file in CSV format.</p><br />
+  </div>  
+
+  <button type="submit"  class="btn btn-success btn-lg">Generar</button>
+  
+</form>
+
+	
+{% endblock %}

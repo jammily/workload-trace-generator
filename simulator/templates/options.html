@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+  
+{% block content %}
+
+<div class="jumbotron">
+  <h1>Workload Trace Generator</h1>
+  <p class="lead"></p>
+  <p><a class="btn btn-lg btn-default" href="{{ url_for('inputData') }}" >Ingreso de Datos <span class="glyphicon glyphicon-list-alt"></span></a>
+  <p><a class="btn btn-lg btn-default" href="{{ url_for('uploadFile') }}" >Subir Archivo <span class="glyphicon glyphicon-file"></span></a>
+  </p>
+</div>
+ 
+<div class="row marketing">
+  <div class="col-lg-6">
+    <h4>Ingreso de Datos </h4>
+    <p>Permitir&aacute; la carga de datos de entrada de forma manual.</p>
+  </div>
+ 
+  <div class="col-lg-6">
+    <h4>Benchmark</h4>
+    <p>Permitir&aacute; la carga de un archivos con los datos separados por comas (",").</p>
+  </div>
+</div>
+ 
+{% endblock %}

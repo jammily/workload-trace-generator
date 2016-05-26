@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="jumbotron">
+  <h1>Workload Trace Generator</h1>
+  <p class="lead"></p>
+  <p><a class="btn btn-primary btn-sm btn-block" href="{{ url_for('showOptions')}}" >Generaci&oacute;n</a>
+  <p><a class="btn btn-primary btn-sm btn-block" href="{{ url_for('benchmark')}}"  >Benchmark</a>
+  </p>
+</div>
+
+<div class="row marketing">
+  <div class="col-lg-6">
+    <h4>Generaci&oacute;n</h4>
+    <p>Permitir&aacute; la generaci&oacute;n de cargas de trabajo a partir del ingreso de datos de entrada de forma manual o pre-cargadas en un archivo separado por comas (CSV).</p>
+  </div>
+
+  <div class="col-lg-6">
+     <h4>Benchmark</h4>
+     <p>Permitir&aacute; la descarga de trazas de trabajo pre-generadas.</p>
+  </div>
+</div>
+
+{% endblock %}

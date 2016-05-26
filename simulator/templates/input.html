@@ -1,0 +1,555 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <center><h2>Ingreso de Datos</h2></center>
+  <br>
+    <form action="{{ url_for('inputData') }}" method=post>
+    {#{ form.hidden_tag() }#}
+    <div class="form-group">
+      <div class="page-header-sim">
+        <h3 class="text-info">Selecci&oacute;n del Escenario</h3>
+      </div>
+      
+        <select class="form-control" id="selectSI" name="selectSI">
+          <option value="0">(0,0) Sin elasticidad - Sin overbooking</option>
+          <option value="1">(0,1) Sin elasticidad - Overbooking de Recursos de Servidor</option>
+          <option value="2">(0,2) Sin elasticidad - Overbooking de Recursos de Red</option>
+          <option value="3">(0,3) Sin elasticidad - Overbooking de Recursos de Servidor y Red</option>
+          <option value="4">(1,0) Elasticidad Horizontal - Sin Overbooking</option>
+          <option value="5">(1,1) Elasticidad Horizontal - Overbooking de Recursos de Servidor</option>
+          <option value="6">(1,2) Elasticidad Horizontal - Overbooking de Recursos de Red</option>
+          <option value="7">(1,3) Elasticidad Horizontal - Overbooking de Recursos de Servidor y Red</option>
+          <option value="8">(2,0) Elasticidad Vertical - Sin Overbooking</option>
+          <option value="9">(2,1) Elasticidad Vertical - Overbooking de Recursos de Servidor</option>
+          <option value="10">(2,2) Elasticidad Vertical - Overbooking de Recursos de Red</option>
+          <option value="11">(2,3) Elasticidad Vertical - Overbooking de Recursos de Servidor y Red</option>
+          <option value="12">(3,0) Elasticidad Horizontal y Vertical - Sin Overbooking</option>
+          <option value="13">(3,1) Elasticidad Horizontal y Vertical - Overbooking de Recursos de Servidor</option>
+          <option value="14">(3,2) Elasticidad Horizontal y Vertical - Overbooking de Recursos de Red</option>
+          <option value="15">(3,3) Elasticidad Horizotnal y Vertical - Overbooking de Recursos de Servidor y Red</option>
+        </select>
+    </div>
+   <br>   
+
+    <div class="page-header-sim">
+      <h3 class="text-info">Duraci&oacute;n Total de la Traza de Trabajo</h3>
+    </div>
+    
+    <div class="form-group">
+      <div class="form-inline">
+
+        <h5>Tiempo de duraci&oacute;n inicial y final de la traza de cargas de trabajo (Unidades de Tiempo Discreto) <span class="glyphicon glyphicon-info-sign" title="Corresponde al intervalo de tiempo en el cual las m&aacute;quinas virtuales (VMs) ser&aacute;n creadas y destruidas. Por defecto, el tiempo mínimo es 0 y el tiempo máximo es 30. "></span></h5>
+        <label class="src-only" for="wti" id="wti">
+        <input required="required" type="number" min="1" class="form-control" value="1" name="wti" placeholder="0">
+        <label class="src-only" for="wtf" id="wtf">
+        <input required="required" type="number" min="1" class="form-control" value="30" name="wtf" placeholder="30">
+      </div>
+    </div>
+
+    <!-- ##########################################   DC - S - VMs   #######################################-->
+
+
+    <div class="page-header-sim">
+      <h3 class="text-info">Centro de Datos y Servicios</h3>
+    </div>
+    
+
+    <div class="form-group">
+      <div class="form-inline">
+      <h5>N&uacute;mero de Centro de Datos (DC) en la Nube (Por defecto: min=1, max=2) <span class="glyphicon glyphicon-info-sign" title="Se elegirá un valor X utilizando una funci&oacute;n de probabilidad uniforme (aleatorio) entre el valor m&iacute;nimo y m&aacute;ximo insertado. Este valor X representa el n&uacute;mero de DCs a ser generados."></span></h5>
+        <label class="src-only" for="dci" id="dci">
+        <input required="required" type="number" min="1" class="form-control" value="1" name="dci" placeholder="1">
+        <label class="src-only" for="dcf" id="dcf">
+        <input required="required" type="number" min="1" class="form-control" value="2" name="dcf" placeholder="2">
+     </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-inline">
+      <h5>N&uacute;mero de Servicios en la Nube (Por defecto: min=1, max=2) <span class="glyphicon glyphicon-info-sign" title="Se elegirá un valor X utilizando una funci&oacute;n de probabilidad uniforme (aleatorio) entre el valor m&iacute;nimo y m&aacute;ximo insertado. Este valor X representa el n&uacute;mero de Servicios a ser generados."></span></h5>
+        <label class="src-only" for="srvi" id="srvi">
+        <input required="required" type="number" min="1" class="form-control" value="1" name="srvi" placeholder="1">
+        <label class="src-only" for="srvf" id="srvf">
+        <input required="required" type="number" min="1" class="form-control" value="2" name="srvf" placeholder="2">
+     </div>
+    </div>
+
+    <div class="form-group">
+      <h5>Cantidad de M&aacute;quinas Virtuales (VMs) por Servicio (Por defecto, min=1, max=20) <span class="glyphicon glyphicon-info-sign" title="Se elegirá un valor X utilizando una funci&oacute;n de probabilidad uniforme (aleatorio) entre el valor m&iacute;nimo y m&aacute;ximo insertado. Este valor X representa el n&uacute;mero de VMs a ser generadas por Servicio."></span></h5>
+        <div class="form-inline">
+          <label class="src-only" for="vmsi" id="vmsi">
+          <input required="required" type="number" min="1" class="form-control" value="1" name="vmsi" placeholder="1">
+          <label class="src-only" for="vmsf" id="vmsf">
+          <input required="required" type="number" min="1" class="form-control" value="20" name="vmsf" placeholder="20">
+        </div>
+    </div>
+
+
+    
+    
+
+<!-- #########################################################################################################-->
+ 
+
+    <div class="page-header-sim">
+      <h3 class="text-info">Par&aacute;metro para creaci&oacute;n de M&aacute;quinas Virtuales</h3>
+    </div>
+
+
+<!-- ################################################ Tiempo de Inicio #########################################################-->
+    <div class="title-sim">
+      <h4><b>Tiempo de inicio</b></h4>
+    </div>
+
+    <div class="form-group">
+      <h5>Tiempo de inicio de creaci&oacuten de VMs <span class="glyphicon glyphicon-info-sign" title="Se elegirá un valor X para el tiempo inicial de ejecuci&oacute;n de cada VM utilizando la funci&oacute;n distribuci&oacute;n de probabilidad escogida."></span></h5>
+      <div class="row">
+        
+        <div class="col-xs-5" style="padding-right: 3px;">
+        
+        <select class="form-control" id="fdpVM"  name="fdpVM">
+          <option value="0">Uniforme (min, max)</option>
+          <option value="1">Poisson (&lambda;)</option>
+          <option value="2">Normal Positiva (&mu;, &sigma;)</option>
+        </select>
+        </div>
+         
+        <div id="fUniformVMS"> 
+          <div class="col-xs-2" style="padding-right: 3px;">
+            <label class="src-only" for="fUniformVM" id="fUniformVM">
+            <input required="required" type="number" min="0" class="form-control" value="1" name="fUniformVM" placeholder="1">
+          </div>
+        </div>
+
+        <div id="tUniformVMS"> 
+          <div class="col-xs-2" style="padding-right: 3px;">
+            <label class="src-only" for="tUniformVM" id="tUniformVM">
+            <input required="required" type="number" min="0" class="form-control" value="10" name="tUniformVM" placeholder="10">
+          </div>
+          <span class="glyphicon glyphicon-info-sign" title="Cada VM será generada en el instante de tiempo X donde X se encuentra entre el m&iacute;nimo y m&aacute;ximo definido. En nuestro valor por defecto min=1 y max=10. De manera a seleccionar el valor X en el rango definido, se utiliza por defecto la fdp uniforme (aleatorio). Se podrá seleccionar otra fdp."></span>
+
+        </div>
+  
+        <div style="display:none;" id="lambdaVMS">
+          <div class="col-xs-2" style="padding-right: 2px;">
+            <label class="src-only" for="lambdaVM" id="lambdaVM">
+            <input required="required" type="number" min="0" class="form-control" value="5" name="lambdaVM" placeholder="&lambda;">
+          </div>
+          <span class="glyphicon glyphicon-info-sign" title="El valor &lambda; es el valor esperado. Por ejemplo entre el min=0 y max=30 con &lambda;=5 la salida tenderá a 5. Por defecto, &lambda;=5"></span>
+        </div>
+
+      <div style="display:none;" id="muVMS">
+        <div class="col-xs-2" style="padding-right: 2px;">
+          
+       <label class="src-only" for="muVM" id="muVM">
+             <input required="required" type="number" min="0" step="0.01" class="form-control" value="3.0" name="muVM" placeholder="&mu;">
+        </div>
+      </div>
+
+      <div style="display:none;" id="sigmaVMS">
+        <div class="col-xs-2" style="padding-right: 2px;">
+          <label class="src-only" for="sigmaVM" id="sigmaVM">
+          <input required="required" type="number" min="0" step="0.01" class="form-control" value="2.0" name="sigmaVM" placeholder="&sigma;">
+        </div>
+        <span class="glyphicon glyphicon-info-sign" title="El valor &mu; corresponde al valor medio que se desea obtener y el valor &sigma; corresponde a la variaci&oacute;n entorno a la media. Por ejemplo entre el min=0 y el max=30 con &mu;=3.0 y &sigma;=2.0 los valores tenderán con mayor intensidad a 3 y variar&iacute;an con menor intensidad entre 1 y 5, es decir, &mu; - &sigma; y &mu; + &sigma;. Por defecto, &mu;=3.0, &sigma;=2.0"></span>
+      </div>
+      
+   
+      </div>
+    </div>
+
+<!-- ##########################################   PROCESADOR   #######################################-->
+
+    <div class="title-sim">
+      <h4><b>Procesador</b></h4>
+    </div>
+
+    <div class="form-group">
+      <h5>Rango de valores para recursos de procesador (ECU) <span class="glyphicon glyphicon-info-sign" title="Cada VM será generada con X ECU de procesador donde X es elegida entre el m&iacute;nimo y m&aacute;ximo definido. Por defecto, min=2 y max=10. De manera a seleccionar el valor X en el rango definido, se utiliza por defecto la fdp uniforme (aleatorio). Se podrá seleccionar otra fdp."></span> </h5>
+      <div class="row">
+          
+        <div class="col-xs-5" style="padding-right: 3px;">
+          <select class="form-control" id="fdpVcpu"  name="fdpVcpu">
+            <option value="0">Uniforme (min, max)</option>
+            <option value="1">Poisson (&lambda;)</option>
+            <option value="2">Normal Positiva (&mu;, &sigma;)</option>
+          </select>         
+        </div>
+
+        <div id="fUniformVcpuS">
+          <div class="col-xs-2" style="padding-right: 2px;">
+            <label class="src-only" for="cpui" id="cpui">
+            <input required="required" type="number" min="0" class="form-control" value="2" name="cpui" placeholder="2 ECU">
+          </div>
+        </div>
+        <div id="tUniformVcpuS">
+          <div class="col-xs-2" style="padding-right: 2px;">
+            <label class="src-only" for="cpuf" id="cpuf">
+            <input required="required" type="number" min="1" class="form-control" value="10" name="cpuf" placeholder="10 ECU">
+          </div>
+        </div>
+
+        <div style="display:none;" id="fUniformVcpuuS">
+          <div class="col-xs-2" style="padding-right: 2px;">
+            <h5><b>Min:</b></h5>
+            <label class="src-only" for="fUniformVcpu" id="fUniformVcpu">
+            <input required="required" type="number" min="0" class="form-control" value="0" name="fUniformVcpu" placeholder="1">
+          </div>
+        </div>
+
+        <div style="display:none;" id="tUniformVcpuuS">
+          <div class="col-xs-2" style="padding-right: 2px;">
+            <h5><b>Max:</b></h5>
+            <label class="src-only" for="tUniformVcpu" id="tUniformVcpu">
+            <input required="required" type="number" min="0" class="form-control" value="0" name="tUniformVcpu" placeholder="10">
+          </div>
+          <span class="glyphicon glyphicon-info-sign" title="Opcional. Corresponde a la asignaci&oacute;n de recursos de manera uniforme para un subconjunto dentro de los valores asignados en &ldquo;Rango de valores para recursos de Procesador&rdquo;."></span>  
+        </div>
+        
+        <div style="display:none;" id="lambdaVcpuS">
+          <div class="col-xs-2" style="padding-right: 2px;">
+              <label class="src-only" for="lambdaVcpu" id="lambdaVcpu">
+              <input required="required" type="number" min="0" class="form-control" value="5" name="lambdaVcpu" placeholder="&lambda;">
+          </div>
+          <span class="glyphicon glyphicon-info-sign" title="El valor lambda X es el valor esperado. Por ejemplo entre el min=2 y max=10 con &lambda;=5 la salida tenderá a 5. Por defecto, &lambda;=5"></span>  
+        </div>
+
+        <div style="display:none;" id="muVcpuS">
+          <div class="col-xs-2" style="padding-right: 2px;">
+               <label class="src-only" for="muVcpu" id="muVcpu">
+               <input required="required" type="number" min="0" step="0.01" class="form-control" value="6.0" name="muVcpu" placeholder="&mu;">
+          </div>
+        </div>
+
+        <div style="display:none;" id="sigmaVcpuS">
+          <div class="col-xs-2" style="padding-right: 2px;">
+               <label class="src-only" for="sigmaVcpu" id="sigmaVcpu">
+               <input required="required" type="number" min="0" step="0.01" class="form-control" value="2.0" name="sigmaVcpu" placeholder="&sigma;">
+          </div>
+          <span class="glyphicon glyphicon-info-sign" title="El valor &mu; corresponde al valor medio que se desea obtener y el valor &sigma; corresponde a la variaci&oacute;n entorno a la media. Por ejemplo entre el min=2 y el max=10 con &mu;=6.0 y &sigma;=2.0 los valores tenderán con mayor intensidad a 6 y variar&iacute;an con menor intensidad entre 4 y 8, es decir, &mu; - &sigma; y &mu; + &sigma;. Por defecto, &mu;=6.0, &sigma;=2.0"></span>
+        </div>
+      </div>
+    </div>
+ 
+<!-- ############################### UTILIZACION DE CPU ############################## -->
+
+    <div class="form-group">
+       
+        <div style="display:none;" id="fdpUcpuS">
+          <div class="form-group">
+           <p><h5><b>Utilizaci&oacute;n del Procesador (%) <span class="glyphicon glyphicon-info-sign" title="Cada VM será generada con X % de utilización del procesador donde X es elegida entre 0% y 100%. De manera a seleccionar el valor X en el rango definido, se utiliza por defecto la fdp uniforme (aleatorio). Se podrán seleccionar otras fdp."></span></b></h5>
+            <div class="row">
+
+              <div class="col-xs-5" style="padding-right: 3px;">
+                <select class="form-control" id="fdpUcpu"  name="fdpUcpu">
+                  <option value=""> --- </option>
+                  <option value="0">Uniforme (min, max)</option>
+                  <option value="1">Poisson (&lambda;)</option>
+                  <option value="2">Normal Positiva (&mu;, &sigma;)</option>
+                </select>
+              </div>
+
+              <div style="display:none;" id="fUniformUcpuS">
+                <div class="col-xs-2" style="padding-right: 2px;">
+                  <label class="src-only" for="fUniformUcpu" id="fUniformUcpu">
+                  <input required="required" type="number" min="0" max="99" class="form-control" value="20" name="fUniformUcpu" placeholder="%">
+                </div>
+              </div>
+
+              <div style="display:none;" id="tUniformUcpuS">
+                <div class="col-xs-2" style="padding-right: 2px;">
+                  <label class="src-only" for="tUniformUcpu" id="tUniformUcpu">
+                  <input required="required" type="number" min="0" max="100" class="form-control" value="40" name="tUniformUcpu" placeholder="%">
+                </div>
+                <span class="glyphicon glyphicon-info-sign" title="De manera a seleccionar el valor X entre el 0% y 100%, se utiliza la fdp uniforme entre el m&iacute;nimo y m&aacute;ximo definido. Por defecto, min=20, max=40."></span>
+              </div>
+            
+              <div style="display:none;" id="lambdaUcpuS">
+                <div class="col-xs-2" style="padding-right: 2px;">
+                    <label class="src-only" for="lambdaUcpu" id="lambdaUcpu">
+                    <input required="required" type="number" min="0" max="95" class="form-control" value="50" name="lambdaUcpu" placeholder="&lambda;">
+                </div>
+                <span class="glyphicon glyphicon-info-sign" title="El valor lambda X produce que la salida tienda a X dentro del intervalo definido. Por ejemplo entre 0% y 100% de utilización con &lambda;=50 la salida tenderá al 50%. Por defecto, &lambda;=50"></span>
+              </div>
+
+              <div style="display:none;" id="muUcpuS">
+                <div class="col-xs-2" style="padding-right: 2px;">
+                     <label class="src-only" for="muUcpu" id="muUcpu">
+                     <input required="required" type="number" min="0" max="99" step="0.01" class="form-control" value="40" name="muUcpu" placeholder="&mu;">
+                </div>
+              </div>
+
+              <div style="display:none;" id="sigmaUcpuS">
+                <div class="col-xs-3" style="padding-right: 2px;">
+                     <label class="src-only" for="sigmaUcpu" id="sigmaUcpu">
+                     <input required="required" type="number" min="0" max="100" step="0.01" class="form-control" value="20" name="sigmaUcpu" placeholder="&sigma;">
+                </div>
+                <span class="glyphicon glyphicon-info-sign" title="El valor &mu; corresponde al valor medio que se desea obtener y el valor &sigma; corresponde a la variaci&oacute;n entorno a la media. Por ejemplo entre el 0% y el 100% de utilización con &mu;=40.0 y &sigma;=20.0 los valores tenderán con mayor intensidad a 40% y variar&iacute;an con menor intensidad entre 20% y 60%, es decir, &mu; - &sigma; y &mu; + &sigma;. Por defecto, &mu;=40.0, &sigma;=20.0"></span>
+              </div>
+          </div>
+        </div>
+        
+   </div>
+  </div>
+ 
+<!-- ##########################################   MEMORIA    #######################################-->
+      
+    <div class="title-sim">
+      <h4><b>Memoria</b></h4>
+    </div>
+
+    <div class="form-group">
+      <h5>Rango de valores para recursos de Memoria (GB) <span class="glyphicon glyphicon-info-sign" title="Cada VM será generada con X GB de memoria donde X es elegida entre el m&iacute;nimo y m&aacute;ximo definido. Por defecto, min=4 y max=16. De manera a seleccionar el valor X en el rango definido, se utiliza por defecto la fdp uniforme (aleatorio). Se podrá seleccionar otra fdp."></span> </h5>
+      <div class="row">
+
+        <div class="form-group">
+            <div class="col-xs-5" style="padding-right: 2px;">
+            <select class="form-control" id="fdpVmem"  name="fdpVmem">
+              <option value="0">Uniforme (min, max)</option>
+              <option value="1">Poisson (&lambda;)</option>
+              <option value="2">Normal Positiva (&mu;, &sigma;)</option>
+            </select>
+            </div>
+
+            <div style="display:none;" id="fUniformVmeemS">
+              <div class="col-xs-2" style="padding-right: 2px;">
+                <h5><b>Min:</b></h5>
+                <label class="src-only" for="fUniformVmem" id="fUniformVmem">
+                <input required="required" type="number" min="0" class="form-control" value="0" name="fUniformVmem" placeholder="0">
+              </div>
+            </div>
+
+            <div style="display:none;" id="tUniformVmeemS">
+              <div class="col-xs-2" style="padding-right: 2px;">
+                <h5><b>Max:</b></h5>
+                <label class="src-only" for="tUniformVmem" id="tUniformVmem">
+                <input required="required" type="number" min="0" class="form-control" value="0" name="tUniformVmem" placeholder="0">
+              </div>
+            </div>
+
+            <div id="fUniformVmemS">
+              <div class="col-xs-2" style="padding-right: 2px;">
+                <label class="src-only" for="memi" id="memi">
+                <input required="required" type="number" min="0" class="form-control" value="4" name="memi" placeholder="4 GB">
+              </div>
+            </div>
+
+            <div id="tUniformVmemS">
+              <div class="col-xs-2" style="padding-right: 2px;">
+                <label class="src-only" for="memf" id="memf">
+                <input required="required" type="number" min="0" class="form-control" value="16" name="memf" placeholder="16 GB">
+              </div>
+            </div>
+
+            <div style="display:none;" id="lambdaVmemS">
+              <div class="col-xs-2" style="padding-right: 2px;">
+                  <label class="src-only" for="lambdaVmem" id="lambdaVmem">
+                  <input required="required" type="number" min="0" class="form-control" value="8" name="lambdaVmem" placeholder="&lambda;">
+              </div>
+              <span class="glyphicon glyphicon-info-sign" title="El valor lambda X es el valor esperado. Por ejemplo entre el min=4 y max=16 con &lambda;=8 la salida tenderá a 8. Por defecto, &lambda;=8"></span> 
+            </div>
+
+          <div style="display:none;" id="muVmemS">
+            <div class="col-xs-2" style="padding-right: 2px;">
+                 <label class="src-only" for="muVmem" id="muVmem">
+                 <input required="required" type="number" min="0" step="0.01" class="form-control" value="10.0" name="muVmem" placeholder="&mu;">
+            </div>
+          </div>
+
+          <div style="display:none;" id="sigmaVmemS">
+            <div class="col-xs-2" style="padding-right: 2px;">
+                 <label class="src-only" for="sigmaVmem" id="sigmaVmem">
+                 <input required="required" type="number" min="0" step="0.01" class="form-control" value="2.0" name="sigmaVmem" placeholder="&sigma;">
+            </div>
+            <span class="glyphicon glyphicon-info-sign" title="El valor &mu; corresponde al valor medio que se desea obtener y el valor &sigma; corresponde a la variaci&oacute;n entorno a la media. Por ejemplo entre el min=4 y el max=16 con &mu;=8.0 y &sigma;=2.0 los valores tenderán con mayor intensidad a 8 y variar&iacute;an con menor intensidad entre 6 y 10, es decir, &mu; - &sigma; y &mu; + &sigma;. Por defecto, &mu;=8.0, &sigma;=2.0"></span>
+          </div>
+        </div>        
+   </div>
+  </div>
+
+<!-- ############################### UTILIZACION DE MEMORIA ############################## -->
+
+    <div class="form-group">
+      <div class="content row">
+       
+        <div style="display:none;" id="fdpUmemS">
+          <div class="form-group">
+           <p><h5>&nbsp;&nbsp;&nbsp;&nbsp;Utilizaci&oacute;n de la Memoria (%) <span class="glyphicon glyphicon-info-sign" title="Cada VM será generada con X % de utilización de la memoria donde X es elegida entre 0% y 100%. De manera a seleccionar el valor X en el rango definido, se utiliza por defecto la fdp uniforme (aleatorio). Se podrán seleccionar otras fdp."></span></h5>
+
+
+            <div class="col-xs-5" style="padding-right: 2px;">
+              <select class="form-control" id="fdpUmem"  name="fdpUmem">
+                <option value=""> --- </option>
+                <option value="0">Uniforme (min, max)</option>
+                <option value="1">Poisson (&lambda;)</option>
+                <option value="2">Normal Positiva (&mu;, &sigma;)</option>
+              </select>
+            </div>
+
+            <div style="display:none;" id="fUniformUmemS">
+              <div class="col-xs-2" style="padding-right: 2px;">
+                <label class="src-only" for="fUniformUmem" id="fUniformUmem">
+                <input required="required" type="number" min="0" max="99" class="form-control" value="20" name="fUniformUmem" placeholder="0 %">
+              </div>
+            </div>
+
+            <div style="display:none;" id="tUniformUmemS">
+              <div class="col-xs-2" style="padding-right: 2px;">
+                <label class="src-only" for="tUniformUmem" id="tUniformUmem">
+                <input required="required" type="number" min="0" max="100" class="form-control" value="40" name="tUniformUmem" placeholder="100 %">
+              </div>
+              <span class="glyphicon glyphicon-info-sign" title="De manera a seleccionar el valor X entre el 0% y 100%, se utiliza la fdp uniforme entre el m&iacute;nimo y m&aacute;ximo definido. Por defecto, min=20, max=40."></span></h5>
+            </div>
+
+            <div style="display:none;" id="lambdaUmemS">
+              <div class="col-xs-2" style="padding-right: 2px;">
+                  <label class="src-only" for="lambdaUmem" id="lambdaUmem">
+                  <input required="required" type="number" min="0" max="99" class="form-control" value="50" name="lambdaUmem" placeholder="&lambda;">
+              </div>
+              <span class="glyphicon glyphicon-info-sign" title="El valor lambda X es el valor esperado. Por ejemplo entre 0% y 100% de utilización con &lambda;=50 la salida tenderá al 50%. Por defecto, &lambda;=50"></span>
+            </div>
+
+          <div style="display:none;" id="muUmemS">
+            <div class="col-xs-2" style="padding-right: 2px;">
+                 <label class="src-only" for="muUmem" id="muUmem">
+                 <input required="required" type="number" min="0" max="99" step="0.01" class="form-control" value="40" name="muUmem" placeholder="&mu;">
+            </div>
+          </div>
+
+          <div style="display:none;" id="sigmaUmemS">
+            <div class="col-xs-2" style="padding-right: 2px;">
+                 <label class="src-only" for="sigmaUmem" id="sigmaUmem">
+                 <input required="required" type="number" min="0" max="100" step="0.01" class="form-control" value="20" name="sigmaUmem" placeholder="&sigma;">
+            </div>
+            <span class="glyphicon glyphicon-info-sign" title="El valor &mu; corresponde al valor medio que se desea obtener y el valor &sigma; corresponde a la variaci&oacute;n entorno a la media. Por ejemplo entre el 0% y el 100% de utilización con &mu;=40.0 y &sigma;=20.0 los valores tenderán con mayor intensidad a 40% y variar&iacute;an con menor intensidad entre 20% y 60%, es decir, &mu; - &sigma; y &mu; + &sigma;. Por defecto, &mu;=40.0, &sigma;=20.0"></span>
+          </div>
+
+              </div>
+            </div>
+   </div>
+  </div>
+ 
+    <!-- ##########################################   RED    #######################################-->
+
+    <div class="title-sim">
+      <h4><b>Red</b></h4>
+    </div>
+ 
+    <div class="form-group">
+      <h5>Rango de valores para recursos de Red (Mbps) <span class="glyphicon glyphicon-info-sign" title="Cada VM será generada con X Mbps de recurso de red donde X es elegida entre el m&iacute;nimo y m&aacute;ximo definido. Por defecto, min=100 y max=1000. De manera a seleccionar el valor X en el rango definido, se utiliza por defecto la fdp uniforme (aleatorio)."></span></h5>
+      <div class="content row">
+       
+        <div class="col-xs-3" style="padding-right: 0px;">
+          <label class="src-only" for="neti" id="neti">
+          <input required="required" type="number" min="0" class="form-control" value="100" name="neti" placeholder="100 Mbps">
+        </div>
+        <div class="col-xs-3" style="padding-right: 0px;">
+          <label class="src-only" for="netf" id="netf">
+          <input required="required" type="number" min="0" class="form-control" value="1000" name="netf" placeholder="1000 Mbps">
+        </div>
+      </div>
+    </div>
+
+<!-- ############################### UTILIZACION DE RED ############################## -->
+
+    <div class="form-group">
+      <div class="row">
+       
+        <div style="display:none;" id="fdpUnetS">
+          <div class="form-group">
+           <p><h5>&nbsp;&nbsp;&nbsp;&nbsp;Utilizaci&oacute;n de la Red (%) <span class="glyphicon glyphicon-info-sign" title="Cada VM será generada con X % de utilización de red donde X es elegida entre 0% y 100%. De manera a seleccionar el valor X en el rango definido, se utiliza por defecto la fdp uniforme (aleatorio). Se podrán seleccionar otras fdp."></span></h5>
+            
+            <div class="col-xs-5" style="padding-right: 2px;">
+            <select class="form-control" id="fdpUnet"  name="fdpUnet">
+              <option value=""> --- </option>
+              <option value="0">Uniforme (min, max)</option>
+              <option value="1">Poisson (&lambda;)</option>
+              <option value="2">Normal Positiva (&mu;, &sigma;)</option>
+            </select>
+            </div>
+
+            <div style="display:none;" id="fUniformUnetS">
+              <div class="col-xs-2" style="padding-right: 2px;">
+                <label class="src-only" for="fUniformUnet" id="fUniformUnet">
+                <input required="required" type="number" min="0" max="99" class="form-control" value="20" name="fUniformUnet" placeholder="0">
+              </div>
+            </div>
+
+            <div style="display:none;" id="tUniformUnetS">
+              <div class="col-xs-2" style="padding-right: 2px;">
+                <label class="src-only" for="tUniformUnet" id="tUniformUnet">
+                <input required="required" type="number" min="0" max="100" class="form-control" value="40" name="tUniformUnet" placeholder="0">
+              </div>
+              <span class="glyphicon glyphicon-info-sign" title="De manera a seleccionar el valor X entre el 0% y 100%, se utiliza la fdp uniforme entre el m&iacute;nimo y m&aacute;ximo definido. Por defecto, min=20, max=40."></span></h5>
+            </div>
+
+            <div style="display:none;" id="lambdaUnetS">
+              <div class="col-xs-2" style="padding-right: 2px;">
+                  <label class="src-only" for="lambdaUnet" id="lambdaUnet">
+                  <input required="required" type="number" min="0" max="99" class="form-control" value="50" name="lambdaUnet" placeholder="&lambda;">
+              </div>
+              <span class="glyphicon glyphicon-info-sign" title="El valor lambda X es el valor esperado. Por ejemplo entre 0% y 100% de utilización con &lambda;=50 la salida tenderá al 50%. Por defecto, &lambda;=50"></span>
+            </div>
+
+          <div style="display:none;" id="muUnetS">
+            <div class="col-xs-2" style="padding-right: 2px;">
+                 <label class="src-only" for="muUnet" id="muUnet">
+                 <input required="required" type="number" min="0" max="99" step="0.01" class="form-control" value="40.0" name="muUnet" placeholder="&mu;">
+            </div>
+          </div>
+
+          <div style="display:none;" id="sigmaUnetS">
+            <div class="col-xs-2" style="padding-right: 2px;">
+                 <label class="src-only" for="sigmaUnet" id="sigmaUnet">
+                 <input required="required" type="number" min="0" max="100" step="0.01" class="form-control" value="20.0" name="sigmaUnet" placeholder="&sigma;">
+            </div>
+            <span class="glyphicon glyphicon-info-sign" title="El valor &mu; corresponde al valor medio que se desea obtener y el valor &sigma; corresponde a la variaci&oacute;n entorno a la media. Por ejemplo entre el 0% y el 100% de utilización con &mu;=40.0 y &sigma;=20.0 los valores tenderán con mayor intensidad a 40% y variar&iacute;an con menor intensidad entre 20% y 60%, es decir, &mu; - &sigma; y &mu; + &sigma;. Por defecto, &mu;=40.0, &sigma;=20.0"></span>
+          </div>
+
+
+           </div>
+        </div>
+   </div>
+  </div>
+
+    <div>
+      <h4><b>Revenue</b></h4>
+    </div>
+
+    <div class="form-group">
+      <div class="form-inline">
+      
+        <h5>Rango de valores de ingresos por ejecutar las M&aacute;quinas Virtuales ($) <span class="glyphicon glyphicon-info-sign" title="Se elegirá un valor X utilizando una funci&oacute;n de probabilidad uniforme (aleatorio) entre el valor m&iacute;nimo y m&aacute;ximo insertado. Este valor X representa el costo de ejecución de las VMs a ser generadas. Por defecto, min=0.1, max=1.5."></span></h5>
+        <label class="src-only" for="revi" id="revi">
+        <input required="required" type="number" min="0" step="0.01" class="form-control" value="0.1" name="revi" placeholder="0.1 $">
+        <label class="src-only" for="revf" id="revf">
+        <input required="required" type="number" min="0" step="0.01" class="form-control" value="1.5" name="revf" placeholder="1.5 $">
+      </div>
+    </div>
+    
+    <div>
+      <h4><b>SLA</b></h4>
+    </div>
+
+    <div class="form-group">
+      <div class="form-inline">
+      <h5>Rango de valores del Service Level Agreement (SLA) de las M&aacute;quinas Virtuales  <span class="glyphicon glyphicon-info-sign" title="Se elegirá un valor X utilizando una funci&oacute;n de probabilidad uniforme (aleatorio) entre el valor m&iacute;nimo y m&aacute;ximo insertado. Este valor X representa el SLA de las VMs a ser generadas. Por defecto, min=1, max=5."></span></h5>
+        <label class="src-only" for="slai" id="slai">
+        <input required="required" type="number" min =0 class="form-control" value="1" name="slai" placeholder="1">
+        <label class="src-only" for="netf" id="slaf">
+        <input required="required" type="number" min=0 class="form-control" value="5" name="slaf" placeholder="5">
+         
+     </div>
+    </div>
+
+    
+  <button type="submit" name="submit" value="generate" class="btn btn-success btn-lg">Generar</button>
+  
+  <div class="pull-right">
+    <button type="submit" name="submit" value="download" class="btn btn-primary"> <span class="glyphicon glyphicon-download"></span> Download Values</button>
+  </div>
+
+  </form>
+
+{% endblock %}
